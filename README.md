@@ -1,5 +1,7 @@
-# Team 1 - Grade Calculator
-Final team project for Spring 2022-ICSI 418Y
+# Team 1 - Grade Calculator Website
+One of multiple repositories for the final team project in Spring 2022-ICSI 418Y
+
+This specific repository is for the website version of the Grade Calculator
 
 Team Members:
 - Dan Yee
@@ -7,8 +9,3 @@ Team Members:
 - Quillan Brady
 - Andy Vuu
 - Taha Farooq
-
-Features:
-- Website version for online usage (planned)
-- Application version for offline usage (planned)
-- Implementation within a Discord Bot (planned)
