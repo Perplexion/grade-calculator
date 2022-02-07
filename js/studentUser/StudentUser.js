@@ -2,8 +2,8 @@
  * Class to represent a Student User for the grade calculator website
  */
 class StudentUser {
-    categoriesList;
-    totalPercentageWeight;
+    categoriesList;                                                             // list of grading categories
+    totalPercentageWeight;                                                      // total percentage weight of all categories (should add to 100, but not necessarily)
 
     constructor() {
         this.categoriesList = [];
