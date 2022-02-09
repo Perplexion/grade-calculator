@@ -15,36 +15,22 @@ class StudentCategory {
     }
 
     /**
-     * Accessor to get the percentage weight of this category
-     */
-    get percentageWeight() {
-        return this.percentageWeight;
-    }
-
-    /**
-     * Accessor to get the exact value of this category on the final grade
-     */
-    get categoryWeightVal() {
-        return this.categoryWeightVal;
-    }
-
-    /**
      * Function that calculates the average of this grading category at the time the function was called
      * @returns the average of this grading category
      */
     calcCategoryAvg() {
         var sum = 0;
 
-        for(var i = 0; i < this.assignments.length; i++)
+        for(var i = 0; i < this.assignmentsList.length; i++)
             sum += (this.assignmentsList[i].calcScore() * 100);                                 // convert decimal to percentage before adding to sum
-        return sum / this.assignmentsList.length;
+        return Number((sum / this.assignmentsList.length).toFixed(2));
     }
 
     /**
      * Function that calculates and updates the exact number of points this category is worth towards a students final grade
      */
     calcWeightVal() {
-        this.categoryWeightVal = this.calcCategoryAvg() * this.percentageWeight;
+        this.categoryWeightVal = Number((this.calcCategoryAvg() * (this.percentageWeight / 100)).toFixed(2));
     }
 
     /**
@@ -56,3 +42,4 @@ class StudentCategory {
         this.calcWeightVal();
     }
 }
+module.exports.StudentCategory = StudentCategory;
