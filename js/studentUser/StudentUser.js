@@ -38,7 +38,7 @@ class StudentUser {
 
         for(var i = 0; i < this.categoriesList.length; i++)
             totalWeightValue += this.categoriesList[i].categoryWeightVal;
-        
-        return totalWeightValue / this.totalPercentageWeight;
+        return Number(((totalWeightValue / this.totalPercentageWeight) * 100).toFixed(2));
     }
 }
+module.exports.StudentUser = StudentUser;
