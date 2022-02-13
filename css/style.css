@@ -6,7 +6,7 @@
 .banner {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(ualbanyfountain.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url(ualbanyfountain.jpg);
     background-size: cover;
     background-position: center;
 
@@ -50,5 +50,18 @@
 .navbar ul li a.active{
     background:rgba(255, 217, 0, 0.932);
     border-radius: 6px;
+
+}
+.Table-Title{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width: 20%;
+    background-color: #fff;
+    background-size: cover
+}
+
+#table{
+    margin: 5px auto;
 
 }
