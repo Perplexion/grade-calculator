@@ -18,65 +18,43 @@
                 </ul>
             
             </div>
-            <div class="container py-4">
-                <div class="row">
-                  <div class="col-md-12 form_sec_outer_task border">
-                    <div class="row">
-                      <div class="col-md-12 bg-light p-2 mb-3">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="row">
-                              <div class="col-md-5">
-                                <h4 class="title">Grade Calculator</h4>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-5">
-                        <label>Catergory Name</label>
-                      </div>
-                      <div class="col-md-2">
-                        <label> Weight </label>
-                      </div>
-                      <div class="col-md-2">
-                        <label> Grade </label>
-                      </div>
-                    </div>
-                    <div class="col-md-12 p-0">
-                      <div class="col-md-12 form_field_outer p-0">
-                        <div class="row form_field_outer_row">
-                          <div class="form-group col-md-5">
-                            <input type="text" class="form-control w_90" name="mobileb_no[]" id="mobileb_no_1" placeholder="Enter Category Name" />
-                          </div>
-                          <div class="form-group col-md-2">
-                            <input type="text" class="form-control w_90" name="mobileb_no[]" id="mobileb_no_1" placeholder="Enter weight" />
-                          </div>
-                          <div class="form-group col-md-2">
-                            <input type="text" class="form-control w_90" name="mobileb_no[]" id="mobileb_no_1" placeholder="Enter grade" />
-                          </div>
-                          <div class="form-group col-md-2 add_del_btn_outer">
-                            <button class="btn_round add_new_frm_field_btn"  title="Add new category and weight"><i class="fas fa-plus"></i>
-                            </button>
-                            <button class="btn_round remove_node_btn_frm_field" disabled>
-                              <i class="fas fa-trash-alt"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- <div class="row ml-0 bg-light mt-3 border py-3"> this div shall be used for the calculate grade button
-                    <div class="col-md-12">
-                      <button class="btn btn-outline-lite py-0 add_new_frm_field_btn"  title="Add new category and weight"><i class="fas fa-plus add_icon"></i> Add</button>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
 
+        <div class="container py-4">
+        <div class="row">
+        <div class="col-md-12 form_sec_outer_task border">
+            <div class="row">
+            <div class="col-md-12 bg-light p-2 mb-3">
+            <div class="row">
+            <div class="col-md-6">
+            <div class="row">
+            <div class="col-md-5">
+              <h4>Grade Calculator</h4>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+          <main>
+              <div id = "mainContainer">
+                  <div id = "category0">    
+                      <input id = "name0" type = "text" placeholder = "Category Name">
+                      <input class = "numeric" type = "text" placeholder = "Weight">
+                      <input class = "numeric" type = "text" placeholder = "Grade">
+                      <button id = "button0" class ="btn_round"><i class="fas fa-trash-alt"></i></button>
+                  </div>
+              </div>
+  
+              <br>
+              <button id = "newCategory" class ="btn_round"><i class="fas fa-plus"></i></button>
+          </main>
+        </div>
+        </div>
+        </div>
         </div>
          <!--script-->
         <script src = "js/jquery-3.6.0.min.js"></script>
+        <script src = "js/main.js"></script>
     </body>
    
 </html>
