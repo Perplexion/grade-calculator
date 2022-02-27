@@ -57,10 +57,9 @@ $("#newCategory").on("click", function() {
     /**
      * Create the Button for deleting the category
      */
-    //$(newButton).text("Delete");
-    $(trashIcon).addClass("fas fa-trash-alt");
-    $(newButton).append(trashIcon);
-    $(newButton).addClass("btn_round");
+    $(trashIcon).addClass("fas fa-trash-alt");                                  // add "trashcan" icon to button
+    $(newButton).append(trashIcon);                                             // append to button so that the element appears within the button tag
+    $(newButton).addClass("btn_round");                                         // give button round shape
     $(newButton).on("click", function() {
         $(newCategory).remove();
     });
