@@ -25,6 +25,7 @@ $("#newCategory").on("click", function() {
     var newWeight = $(document.createElement("input"));
     var newGrade = $(document.createElement("input"));
     var newButton = $(document.createElement("button"));
+    var trashIcon = $(document.createElement("i"));
     
     /**
      * Set the attributes of the input fields
@@ -56,7 +57,10 @@ $("#newCategory").on("click", function() {
     /**
      * Create the Button for deleting the category
      */
-    $(newButton).text("Delete");
+    //$(newButton).text("Delete");
+    $(trashIcon).addClass("fas fa-trash-alt");
+    $(newButton).append(trashIcon);
+    $(newButton).addClass("btn_round");
     $(newButton).on("click", function() {
         $(newCategory).remove();
     });

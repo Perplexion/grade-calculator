@@ -52,7 +52,7 @@
     border-radius: 6px;
 
 }
-  .btn_round {
+.btn_round {
     width: 35px;
     height: 35px;
     display: inline-block;
@@ -63,19 +63,30 @@
     border: 1px solid #ccc;
     cursor: pointer;
   }
-  .btn_round:hover {
+.btn_round:hover {
     color: #fff;
     background: #6b4acc;
     border: 1px solid #6b4acc;
-  }
+}
   
-  .btn_content_outer {
+.btn_content_outer {
     display: inline-block;
     width: 85%;
-  }
+}
 .col-md-12 {
   background-color: white;
 }
 .title{
     text-align: center;
-  }
+}
+
+/* Styles for default loaded line of input fields */
+#mainContainer #category0 #name0 {
+  width: 200px;
+  height: 25px;
+}
+
+#mainContainer #category0 .numeric {
+  width: 100px;
+  height: 25px;
+}
