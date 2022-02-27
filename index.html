@@ -2,7 +2,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
-        <!-- font awesome  -->
+        <!-- font awesome for special button icons  -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
         <link rel="stylesheet" href="static/css/AdminLTE.min.css" />
 
@@ -12,47 +12,45 @@
     <body>
         <div class = "background">
             <div class = "navbar">
-               <!-- TODO: insert ualbany logo  -->
+                <!-- TODO: insert ualbany logo  -->
                 <ul>
                     <li><a class ="active" href="#">Student</a></li>
                 </ul>
-            
             </div>
-
-        <div class="container py-4">
-        <div class="row">
-        <div class="col-md-12 form_sec_outer_task border">
-            <div class="row">
-            <div class="col-md-12 bg-light p-2 mb-3">
-            <div class="row">
-            <div class="col-md-6">
-            <div class="row">
-            <div class="col-md-5">
-              <h4>Grade Calculator</h4>
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 form_sec_outer_task border">
+                        <div class="row">
+                            <div class="col-md-12 bg-light p-2 mb-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <h4>Grade Calculator</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <main>
+                    <div id = "mainContainer">
+                        <div id = "category0">    
+                            <input id = "name0" type = "text" placeholder = "Category Name">
+                            <input class = "numeric" type = "text" placeholder = "Weight">
+                            <input class = "numeric" type = "text" placeholder = "Grade">
+                            <button id = "button0" class ="btn_round"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+    
+                    <br>
+                    <button id = "newCategory" class ="btn_round"><i class="fas fa-plus"></i></button>
+                </main>
+                    </div>
+                </div>
             </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-          <main>
-              <div id = "mainContainer">
-                  <div id = "category0">    
-                      <input id = "name0" type = "text" placeholder = "Category Name">
-                      <input class = "numeric" type = "text" placeholder = "Weight">
-                      <input class = "numeric" type = "text" placeholder = "Grade">
-                      <button id = "button0" class ="btn_round"><i class="fas fa-trash-alt"></i></button>
-                  </div>
-              </div>
-  
-              <br>
-              <button id = "newCategory" class ="btn_round"><i class="fas fa-plus"></i></button>
-          </main>
         </div>
-        </div>
-        </div>
-        </div>
-         <!--script-->
+        <!--script-->
         <script src = "js/jquery-3.6.0.min.js"></script>
         <script src = "js/main.js"></script>
     </body>
