@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+div.row {
+    width: 100%;
+}
+
+div.row::before, div.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Styles for default loaded line of input fields */
+#inputFields #category0 .name {
+    width: 200px;
+    height: 25px;
+}
+
+#inputFields #category0 .numeric {
+    width: 100px;
+    height: 25px;
+}
+
+.main {
+    background-color: white;
+    margin: 0% 5%;
+    padding-bottom: 1%;
+}
+
+.main .calculator .left {
+    width: 47%;
+    float: left;
+    margin-left: 3%;
+}
+
+.main .calculator .right {
+    width: 50%;
+    float: left;
+}
+
+.main #newCategory {
+    margin-left: 3%;
+    margin-top: 1%;
+}

@@ -1,0 +1,104 @@
+/* General CSS Styling for all elements */
+* {
+    box-sizing: border-box;
+}
+
+div.row {
+    width: 100%;
+}
+
+div.row::before, div.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url(ualbanyfountain.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100px;
+    padding:10px 90px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid #fff;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    display:flex;
+}
+
+.navbar ul li a{
+    line-height: 80px;
+    padding: 12px 30px;
+    text-decoration: None;
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+    text-transform: uppercase;
+    transition: all ease 0.5s;
+
+}
+
+.navbar ul li a:hover {
+    background: rgba(255, 217, 0, 0.932);;
+    border-radius: 6px;
+}
+
+.navbar ul li a.active{
+    background:rgba(255, 217, 0, 0.932);
+    border-radius: 6px;
+}
+
+.btn_round {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.btn_round:hover {
+    color: #fff;
+    background: #6b4acc;
+    border: 1px solid #6b4acc;
+}
+
+.main {
+    background-color: white;
+    margin: 0% 5%;
+    padding-bottom: 1%;
+}
+
+.main .title {
+    display: block;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+/* Styles for default loaded line of input fields */
+#inputFields #category0 .name {
+    width: 200px;
+    height: 25px;
+}
+
+#inputFields #category0 .numeric {
+    width: 100px;
+    height: 25px;
+}

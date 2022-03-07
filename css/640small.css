@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+div.row {
+    width: 100%;
+}
+
+div.row::before, div.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main .calculator .left, .main .calculator .right {
+    width: 95%;
+    float: none;
+    margin-left: 5%;
+}

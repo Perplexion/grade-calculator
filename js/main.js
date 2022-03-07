@@ -77,7 +77,7 @@ $("#newCategory").on("click", function() {
     /**
      * Append the div to the main container, also a div
      */
-    $("#mainContainer").append(newCategory);
+    $("#inputFields").append(newCategory);
 
     /**
      * Increment the count so the number is always unique for each new category created
