@@ -25,7 +25,6 @@ $("#newCategory").on("click", function() {
     var newWeight = $(document.createElement("input"));
     var newGrade = $(document.createElement("input"));
     var newButton = $(document.createElement("button"));
-    var trashIcon = $(document.createElement("i"));
     
     /**
      * Set the attributes of the input fields
@@ -36,19 +35,13 @@ $("#newCategory").on("click", function() {
     });
 
     $(newWeight).attr({
-        type: "number",
+        type: "text",
         placeholder: "Weight",
-        min: "0",
-        max: "100",
-        required: true,
     });
 
     $(newGrade).attr({
-        type: "number",
+        type: "text",
         placeholder: "Grade",
-        min: "0",
-        max: "100",
-        required: true,
     });
 
     /**
@@ -56,16 +49,18 @@ $("#newCategory").on("click", function() {
      * This section modifies width and height of input fields
      */
     $(newCategory).css({"padding-top": "5px"});
-    $(newCatName).css({"width": "200px", "height": "25px"});
-    $(newWeight).css({"width": "100px", "height": "25px"});
-    $(newGrade).css({"width": "100px", "height": "25px"});
+    $(newCatName).css({"width": "200px", "height": "80px"});
+    $(newWeight).css({"width": "200px", "height": "80px"});
+    $(newGrade).css({"width": "200px", "height": "80px"});
     
     /**
      * Create the Button for deleting the category
      */
-    $(trashIcon).addClass("fas fa-trash-alt");                                  // add "trashcan" icon to button
-    $(newButton).append(trashIcon);                                             // append to button so that the element appears within the button tag
-    $(newButton).addClass("btn_round");                                         // give button round shape
+
+    
+    $(newButton).text("Delete");
+     $(newButton).addClass("btn_delete");   
+    $(newButton).css({"position": "relative","font-style": "normal","font-size": "1.2em","text-transform": "uppercase","font-weight": "bold", "color":"white"});                                  
     $(newButton).on("click", function() {
         $(newCategory).remove();
     });
