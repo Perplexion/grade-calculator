@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <!-- Main CSS sheet and responsive CSS sheets -->
+        <!-- Main CSS sheet-->
         <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link rel="stylesheet" media="screen and (max-device-width: 900px)" href="css/640small.css"/>           <!-- Need to change number to 640px and play with the CSS -->
-        <link rel="stylesheet" media="screen and (min-device-width: 1008px)" href="css/1008large.css"/>
 
         <!-- FontAwesome for special button icons  -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
         <link rel="stylesheet" href="static/css/AdminLTE.min.css" />
 
-        <!-- Bootstrap CSS -->
+        <!-- Bootstrap 4.6.0 CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
     
         <meta charset = "utf-8">
@@ -33,23 +31,39 @@
                 <div class = "left" id = "inputFields">
                     <div id = "category0">    
                         <input class = "name" type = "text" placeholder = "Category Name">
-                        <input class = "numeric" type = "text" placeholder = "Weight">
-                        <input class = "numeric" type = "text" placeholder = "Grade">
+                        <input class = "numeric" type = "number" placeholder = "Weight" min = "0" max = "100" required>
+                        <input class = "numeric" type = "number" placeholder = "Grade" min = "0" max = "100" required>
                         <button id = "button0" class ="btn_round"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </div>
                 <div class = "right">
                     <h3>How To Use:</h3>
-                    <p>Enter the weight a specific category has on your final grade.</p>
-                    <p>Enter the grade you have in that grading category. This is usually the average of all assignments associated to the category.</p>
-                    <p>Example: Category Name: Homework, Weight: 20, Grade: 90</p>
+                    <ul>
+                        <li>(Optional) Enter the name of the grading category.</li>
+                        <li>Enter the weight (0 - 100) a specific category has on your final grade.</li>
+                        <li>Enter the grade (0 - 100) you have earned for that grading category. This is usually the average of all assignments associated to the category.</li>
+                        <ul>
+                            <li>Example: 
+                                <ul>
+                                    <li>Category Name: Homework</li>
+                                    <li>Weight: 20</li>
+                                    <li>Grade: 90</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </ul>
                 </div>
+
                 <br>
                 <button id = "newCategory" class = "btn_round"><i class="fas fa-plus"></i></button>
-                <!-- FUCK WEB DEV THIS IS SO ANNOYING -->
+                <br>
+                <button id = "calculate" type = "submit">Calculate</button>
             </div>
         </main>
         <script src = "js/jquery-3.6.0.min.js"></script>
-        <script src = "js/main.js"></script>
+        <script src = "js/basic/inputFields.js"></script>
+        <script src = "js/basic/basicCategory.js"></script>
+        <script src = "js/basic/basicMode.js"></script>
+        <script src = "js/basic/calculate.js"></script>
     </body>
 </html>

@@ -92,6 +92,22 @@ div.row::before, div.row::after {
     margin-bottom: 1%;
 }
 
+.main .calculator .left {
+    width: 47%;
+    float: left;
+    margin-left: 3%;
+}
+
+.main .calculator .right {
+    width: 50%;
+    float: left;
+}
+
+.main #newCategory {
+    margin-left: 3%;
+    margin-top: 1%;
+}
+
 /* Styles for default loaded line of input fields */
 #inputFields #category0 .name {
     width: 200px;
