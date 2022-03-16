@@ -3,22 +3,13 @@
     box-sizing: border-box;
 }
 
-div.row {
-    width: 100%;
-}
-
-div.row::before, div.row::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 .background {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url(ualbanyfountain.jpg);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .navbar {
@@ -63,58 +54,131 @@ div.row::before, div.row::after {
     border-radius: 6px;
 }
 
-.btn_round {
-    width: 35px;
-    height: 35px;
-    display: inline-block;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 35px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-}
-
-.btn_round:hover {
-    color: #fff;
-    background: #6b4acc;
-    border: 1px solid #6b4acc;
-}
-
 .main {
-    background-color: white;
-    margin: 0% 5%;
-    padding-bottom: 1%;
+    position: relative;
+    width: 900px;
+    min-height: 400px;
+    background: #333;
+    padding:40px 30px 30px;
+    border-radius: 20px;
+    box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
+    10px 10px 70px rgba(0,0,0,0.25),
+    inset -5px -5px 15px rgba(0,0,0,0.5),
+    inset 5px 5px 15px rgba(0,0,0,0.5);
+
+}
+.calculator-section{
+    position: relative;
+    display:grid
 }
 
-.main .title {
-    display: block;
-    text-align: center;
-    margin-bottom: 1%;
+/* design for finalGrade display*/
+.calculator-section .value{
+    position: relative;
+    height: 100px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #a7af7c;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
-.main .calculator .left {
-    width: 47%;
-    float: left;
-    margin-left: 3%;
-}
-
-.main .calculator .right {
-    width: 50%;
-    float: left;
-}
-
-.main #newCategory {
-    margin-left: 3%;
-    margin-top: 1%;
-}
-
-/* Styles for default loaded line of input fields */
-#inputFields #category0 .name {
+/*design for input fields*/
+.calculator-section input{
     width: 200px;
-    height: 25px;
+    height: 80px;
+    background: linear-gradient(180deg,#2f2f2f, #3f3f3f );
+    color:white
+
 }
 
-#inputFields #category0 .numeric {
+/*design for buttons*/
+.calculator-section button
+{
+    position:relative;
+    display:grid;
+    place-items: center;
+    width: 80px;
+    height: 80px;
+    margin: 8px;
+    background: linear-gradient(180deg,#2f2f2f, #3f3f3f );
+    box-shadow: inset -8px 0 8px rgba(0,0,0,0.25),
+    inset 0 -8px 8px rgba(0,0,0,0.25),
+    0 0 0 2px rgba(0,0,0,0.75),
+    10px 20px 25px rgba(0,0,0,0.4);
+    user-select: None;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.calculator-section button::before{
+    content: '';
+    position: absolute;
+    top: 3px; 
+    left: 4px;
+    bottom: 14px;
+    right: 12px;
+    background: linear-gradient(9deg,#2f2f2f, #4d4d4d);
+    border-radius: 10px;
+    box-shadow: -5px -5px 15px rgba(0,0,0,0.1),
+    10px 5px 10px rgba(0,0,0,0.15);
+    border-left: 1px solid #0004;
+    border-bottom: 1px solid #0004;
+    border-top: 1px solid #0004;
+}
+.calculator-section .btn_delete {
+    display: inline;
+    width: 140px;
+    background: #f00;
+ 
+ }
+ .calculator-section .btn_delete::before{
+ 
+     background:linear-gradient(9deg,#d20000, #ffffff5c);
+     border-left: 1px solid #fff4;
+     border-bottom: 1px solid #fff4;
+     border-top: 1px solid #fff4;
+  
+  }
+
+.calculator-section .btn_add {
+
     width: 100px;
-    height: 25px;
+    background: greenyellow;
+ 
+ }
+ .calculator-section .btn_add::before{
+ 
+     background:linear-gradient(9deg,#66d200, #ffffff5c);
+     border-left: 1px solid #fff4;
+     border-bottom: 1px solid #fff4;
+     border-top: 1px solid #fff4;
+  
+  }
+  
+  
+.calculator-section .btn_calculate {
+
+    width: 140px;
+    background: orange;
+ 
+ }
+ .calculator-section .btn_calculate::before{
+ 
+     background:linear-gradient(9deg,#d27e00, #ffffff5c);
+     border-left: 1px solid #fff4;
+     border-bottom: 1px solid #fff4;
+     border-top: 1px solid #fff4;
+  
+  }
+/*text of each button*/
+.calculator-section button i {
+
+    position: relative;
+    font-style: normal;
+    font-size: 1.2em;
+    text-transform: uppercase;
+
 }
