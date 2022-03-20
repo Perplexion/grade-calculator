@@ -16,11 +16,10 @@
     position:fixed;
     top:0;
     left:0;
-    width:100%;
+    width:200%;
     height: 100px;
     padding:10px 90px;
     box-sizing: border-box;
-    background: rgba(0,0,0,0.2);
     border-bottom: 1px solid #fff;
 }
 
@@ -61,6 +60,8 @@
     background: #333;
     padding:40px 30px 30px;
     border-radius: 20px;
+    margin: auto;
+    margin-top:50px;
     box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
     10px 10px 70px rgba(0,0,0,0.25),
     inset -5px -5px 15px rgba(0,0,0,0.5),
