@@ -83,6 +83,7 @@
     background: #a7af7c;
     margin-bottom: 10px;
     border-radius: 10px;
+    text-align: right;
 }
 
 /*design for input fields*/
@@ -133,50 +134,41 @@
     display: inline;
     width: 140px;
     background: #f00;
- 
- }
- .calculator-section .btn_delete::before{
- 
-     background:linear-gradient(9deg,#d20000, #ffffff5c);
-     border-left: 1px solid #fff4;
-     border-bottom: 1px solid #fff4;
-     border-top: 1px solid #fff4;
-  
-  }
+}
+
+.calculator-section .btn_delete::before{
+    background:linear-gradient(9deg,#d20000, #ffffff5c);
+    border-left: 1px solid #fff4;
+    border-bottom: 1px solid #fff4;
+    border-top: 1px solid #fff4;
+}
 
 .calculator-section .btn_add {
-
     width: 100px;
-    background: greenyellow;
- 
- }
- .calculator-section .btn_add::before{
- 
-     background:linear-gradient(9deg,#66d200, #ffffff5c);
-     border-left: 1px solid #fff4;
-     border-bottom: 1px solid #fff4;
-     border-top: 1px solid #fff4;
-  
-  }
-  
+    background: greenyellow; 
+}
+
+.calculator-section .btn_add::before{
+    background:linear-gradient(9deg,#66d200, #ffffff5c);
+    border-left: 1px solid #fff4;
+    border-bottom: 1px solid #fff4;
+    border-top: 1px solid #fff4;
+}
   
 .calculator-section .btn_calculate {
-
     width: 140px;
     background: orange;
- 
- }
- .calculator-section .btn_calculate::before{
- 
-     background:linear-gradient(9deg,#d27e00, #ffffff5c);
-     border-left: 1px solid #fff4;
-     border-bottom: 1px solid #fff4;
-     border-top: 1px solid #fff4;
-  
-  }
+}
+
+.calculator-section .btn_calculate::before{
+    background:linear-gradient(9deg,#d27e00, #ffffff5c);
+    border-left: 1px solid #fff4;
+    border-bottom: 1px solid #fff4;
+    border-top: 1px solid #fff4;
+}
+
 /*text of each button*/
 .calculator-section button i {
-
     position: relative;
     font-style: normal;
     font-size: 1.2em;
