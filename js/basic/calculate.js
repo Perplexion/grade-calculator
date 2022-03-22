@@ -25,8 +25,7 @@ $("#calculate").on("click", function() {
         }
     }
     calculateWeightValue(basicModeUser.categoriesList);
-    //alert("Final Grade: " + basicModeUser.calcFinalGrade());
-    $("#finalGrade").val(basicModeUser.calcFinalGrade());
+    $("#finalGrade").val(basicModeUser.calcFinalGrade()+ '%');
 });
 
 /**
