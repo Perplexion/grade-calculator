@@ -20,11 +20,11 @@ $("#newCategory").on("click", function() {
     /**
      * Create the new HTML elements - the category div, three input fields and the delete button for this category
      */
-    var newCategory = $(document.createElement("div"));
-    var newCatName = $(document.createElement("input"));
-    var newWeight = $(document.createElement("input"));
-    var newGrade = $(document.createElement("input"));
-    var newButton = $(document.createElement("button"));
+    let newCategory = $(document.createElement("div"));
+    let newCatName = $(document.createElement("input"));
+    let newWeight = $(document.createElement("input"));
+    let newGrade = $(document.createElement("input"));
+    let newButton = $(document.createElement("button"));
     
     /**
      * Set the attributes of the input fields
@@ -59,8 +59,15 @@ $("#newCategory").on("click", function() {
 
     
     $(newButton).text("Delete");
-     $(newButton).addClass("btn_delete");   
-    $(newButton).css({"position": "relative","font-style": "normal","font-size": "1.2em","text-transform": "uppercase","font-weight": "bold", "color":"white"});                                  
+    $(newButton).addClass("btn_delete");   
+    $(newButton).css({
+        "position": "relative",
+        "font-style": "normal",
+        "font-size": "1.2em",
+        "text-transform": "uppercase",
+        "font-weight": "bold",
+        "color": "black",
+    });                                  
     $(newButton).on("click", function() {
         $(newCategory).remove();
     });

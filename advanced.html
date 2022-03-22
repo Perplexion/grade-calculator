@@ -16,15 +16,15 @@
         <meta name = "description" content = "Calculate your weighted average in a class.">
         <meta name = "viewport" content = "width=device-width, initial-scale=1">
 
-        <title>Basic Grade Calculator</title>
+        <title>Advanced Grade Calculator</title>
     </head>
     <body class = "background">
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <header class = "navbar">
                     <ul>
-                        <li><a class = "active" href="index.html">Basic</a></li>
-                        <li><a href = "advanced.html">Advanced</a></li>
+                        <li><a href="index.html">Basic</a></li>
+                        <li><a class = "active" href = "advanced.html">Advanced</a></li>
                         <li><a href="#instructions">Instructions</a></li>
                     </ul>
                 </header>
@@ -39,9 +39,17 @@
                             <div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12" id = "inputFields">
                                 <div id = "category0">    
                                     <input class = "name" type = "text" placeholder = "Category Name">
-                                    <input class = "numeric" type = "text" placeholder = "Weight">
-                                    <input class = "numeric" type = "text" placeholder = "Grade">
-                                    <button id = "button0" class ="btn_delete"><i>Delete</i></button>
+                                    <input class = "numeric" type = "number" placeholder = "Weight" min = "0" max = "100" required>
+                                    <button id = "delCategory0">Delete</button>
+                                    <div id = "category0-assignments">
+                                        <div id = "assignment0" class = "assignment">
+                                            <input class = "name" type = "text" placeholder = "Assignment Name">
+                                            <input class = "numeric" type = "number" placeholder = "Max Score" min = "0" max = "100" required>
+                                            <input class = "numeric" type = "number" placeholder = "Earned Score" min = "0" max = "100" required>
+                                            <button id = "delAssignment0">Delete</button>
+                                        </div>
+                                    </div>
+                                    <button id = "newAssignment0">Add Assignment</button>
                                 </div>
                             </div>
                         </div>
@@ -57,11 +65,13 @@
                 </div>
             </div>
         </div>
-
         <script src = "js/jquery-3.6.0.min.js"></script>
-        <script src = "js/basic/basicInputFields.js"></script>
+        <script src = "js/advanced/advancedInputFields.js"></script>
+
+        <!-- Old scripts to be modified
         <script src = "js/basic/basicCategory.js"></script>
         <script src = "js/basic/basicMode.js"></script>
         <script src = "js/basic/calculate.js"></script>
+        -->
     </body>
 </html>
