@@ -54,6 +54,16 @@
                             </div>
                         </div>
                     </div>
+                    <form class="form-inline">
+                        <div class="form-group">
+                        <label for="files">Upload a Basic save file:</label>
+                        <input type="file" id="files"  class="form-control" accept=".csv" required />
+                        </div>
+                        <div class="form-group">
+                        <button type="submit" id="submit-file" class="btn-upload"><i>Upload File</i></button>
+                        </div>
+                    </form>
+                    <button id="download-sheet" class="btn-download" onclick="downloadSheet()"><i>Save Data</i></button>
                 </div>
             </div>
         </div>
@@ -63,5 +73,7 @@
         <script src = "js/basic/basicCategory.js"></script>
         <script src = "js/basic/basicMode.js"></script>
         <script src = "js/basic/calculate.js"></script>
+        <script src = "js/papaparse.min.js"></script>
+        <script src = "js/basic/SaveUploadFile.js"></script>
     </body>
 </html>
