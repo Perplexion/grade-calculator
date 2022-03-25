@@ -34,7 +34,7 @@ class BasicMode {
      * @returns the final weighted grade for a class
      */
     calcFinalGrade() {
-        var totalWeightValue = 0;
+        let totalWeightValue = 0;
 
         for(var i = 0; i < this.categoriesList.length; i++)
             totalWeightValue += this.categoriesList[i].categoryWeightVal;
