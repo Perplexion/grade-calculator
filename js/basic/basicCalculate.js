@@ -22,9 +22,19 @@ $("#calculate").on("click", function() {
             return;
         }
     }
+    calculateWeightValue(basicModeUser.categoriesList);
     $("#finalGrade").val(basicModeUser.calcFinalGrade() + "%");
     showGradeSummary(basicModeUser);
 });
+
+/**
+ * Function that calculates the point value of each category
+ */
+let calculateWeightValue = function(categoriesList) {
+    for(let i = 0; i < categoriesList.length; i++) {
+        categoriesList[i].calcWeightVal();
+    }
+}
 
 /**
  * Function that verifies the input of CategoryWeight and CategoryGrade to ensure they are valid numerics
