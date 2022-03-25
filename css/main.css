@@ -31,7 +31,7 @@
     display:flex;
 }
 
-.navbar ul li a{
+.navbar ul li a {
     line-height: 80px;
     padding: 12px 30px;
     text-decoration: None;
@@ -48,7 +48,7 @@
     border-radius: 6px;
 }
 
-.navbar ul li a.active{
+.navbar ul li a.active {
     background:rgba(255, 217, 0, 0.932);
     border-radius: 6px;
 }
@@ -70,7 +70,7 @@
 }
 
 /* encases the save/upload buttons */
-.submain{
+.submain {
     position: relative;
     width: 750px;
     height: 75px;
@@ -85,27 +85,25 @@
     inset 5px 5px 15px rgba(0,0,0,0.5);
 }
 
-.label{
+.label {
     color:white;
     font-family:Arial, Helvetica, sans-serif;
     padding-right: 10px;
 }
 
 /* space the upload and save data button */
-.space{
+.space {
     margin-right:10px ;
     margin-left:10px;
 }
 
-
-
-.calculator-section{
+.calculator-section {
     position: relative;
     display:grid
 }
 
 /* design for finalGrade display*/
-.calculator-section .value{
+.calculator-section .value {
     position: relative;
     height: 100px;
     width: 100%;
@@ -118,17 +116,15 @@
 }
 
 /*design for input fields*/
-.calculator-section input{
+.calculator-section input {
     width: 150px;
     height: 80px;
     background: linear-gradient(180deg,#2f2f2f, #3f3f3f );
     color:white
-
 }
 
 /*design for buttons*/
-.calculator-section button
-{
+.calculator-section button {
     position:relative;
     display:grid;
     place-items: center;
@@ -146,7 +142,7 @@
     border-radius: 10px;
 }
 
-.calculator-section button::before{
+.calculator-section button::before {
     content: '';
     position: absolute;
     top: 3px; 
@@ -161,13 +157,14 @@
     border-bottom: 1px solid #0004;
     border-top: 1px solid #0004;
 }
+
 .calculator-section .btn_delete {
     display: inline;
     width: 140px;
     background: #f00;
 }
 
-.calculator-section .btn_delete::before{
+.calculator-section .btn_delete::before {
     background:linear-gradient(9deg,#d20000, #ffffff5c);
     border-left: 1px solid #fff4;
     border-bottom: 1px solid #fff4;
@@ -179,7 +176,7 @@
     background: greenyellow; 
 }
 
-.calculator-section .btn_add::before{
+.calculator-section .btn_add::before {
     background:linear-gradient(9deg,#66d200, #ffffff5c);
     border-left: 1px solid #fff4;
     border-bottom: 1px solid #fff4;
@@ -191,7 +188,7 @@
     background: orange;
 }
 
-.calculator-section .btn_calculate::before{
+.calculator-section .btn_calculate::before {
     background:linear-gradient(9deg,#d27e00, #ffffff5c);
     border-left: 1px solid #fff4;
     border-bottom: 1px solid #fff4;
@@ -204,7 +201,6 @@
     font-style: normal;
     font-size: 1.2em;
     text-transform: uppercase;
-
 }
 
 /*Quillan's shitty CSS that will probably need to be altered or deleted*/
@@ -212,24 +208,60 @@
     width: 140px;
     background: rgba(238, 204, 10, 0.932);;
 }
+
 .calculator-section .btn-upload::before{
- 
     background:linear-gradient(9deg,rgba(255, 217, 0, 0.932), #ffffff5c);
     border-left: 1px solid #fff4;
     border-bottom: 1px solid #fff4;
     border-top: 1px solid #fff4;
- 
- }
+    
+}
 
 .calculator-section .btn-download {
     width: 140px;
     background: rgba(255, 217, 0, 0.932);;
 
 }
-.calculator-section .btn-download::before{
+
+.calculator-section .btn-download::before {
  
     background:linear-gradient(9deg,rgba(255, 217, 0, 0.932), #ffffff5c);
     border-left: 1px solid #fff4;
     border-bottom: 1px solid #fff4;
     border-top: 1px solid #fff4;
- }
+}
+
+/*
+CSS for the right column of the Basic Calculator page
+*/
+.row .rightColumn {
+    margin-top: 50px;
+}
+
+.row .rightColumn #basicExample table, .row .rightColumn #basicExample th, .row .rightColumn #basicExample td {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.row .rightColumn #basicExample th, .row .rightColumn #basicExample td {
+    padding: 5px;
+}
+
+/* Source: https://www.w3schools.com/howto/howto_css_arrows.asp */
+.arrow {
+    border: solid black;
+    border-width: 0px 3px 3px 0px;
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.rightArrow {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.downArrow {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
