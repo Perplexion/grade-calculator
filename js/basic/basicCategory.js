@@ -11,7 +11,7 @@ class BasicCategory {
         this.categoryName = categoryName;
         this.percentageWeight = percentageWeight;
         this.earnedGrade = earnedGrade;
-        this.categoryWeightVal = 0;
+        this.categoryWeightVal = this.calcWeightVal();
     }
 
     /**
