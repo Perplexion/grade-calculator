@@ -25,13 +25,14 @@ $("#calculate").on("click", function() {
         }
     }
     calculateWeightValue(basicModeUser.categoriesList);
-    $("#finalGrade").val(basicModeUser.calcFinalGrade()+ '%');
+    $("#finalGrade").val(basicModeUser.calcFinalGrade() + "%");
+    showGradeSummary(basicModeUser);
 });
 
 /**
  * Function that goes through all the user defined categories and calculates the point value it has on the final grade
  */
-calculateWeightValue = function(categoriesList) {
+let calculateWeightValue = function(categoriesList) {
     for(let i = 0; i < categoriesList.length; i++) {
         categoriesList[i].calcWeightVal();
     }
@@ -40,7 +41,7 @@ calculateWeightValue = function(categoriesList) {
 /**
  * Function that verifies the input of CategoryWeight and CategoryGrade to ensure they are valid numerics
  */
-isValidInput = function(checkValue) {
+let isValidInput = function(checkValue) {
     if(isNaN(checkValue)) {
         alert("A value in a Category is not a number!");
         return false;
@@ -52,4 +53,32 @@ isValidInput = function(checkValue) {
         return false;
     }
     return true;
+}
+
+/**
+ * Function that displays a summary of the users input after they click "Calculate"
+ */
+let showGradeSummary = function(user) {
+    $("#gradeSummaryText").text("");                                                        // clear any old text that was there from a previous calculation
+    for(let i = 0; i < user.categoriesList.length; i++) {                                   // Write a summary for each Category defined by the user
+        let currentCategory = user.categoriesList[i];
+        let newSummaryLine = $(document.createElement("p"));
+        
+        newSummaryLine.text("Category \"" + currentCategory.categoryName + "\" is worth " + currentCategory.percentageWeight + "% of your grade. With your inputted category grade of " + currentCategory.earnedGrade + "%, this category makes up for " + currentCategory.categoryWeightVal + " points on your final grade.");
+        $("#gradeSummaryText").append(newSummaryLine);
+    }
+
+    /**
+     * Make the grade summary section visible if is wasn't already
+     */
+    if(!($("#gradeSummary").is(":visible")))
+        $("#gradeSummary").slideToggle();
+
+    /**
+     * Hide the Instructions section to make room for grade summary section
+     */
+    if($("#helpSection").is(":visible")) {
+        $("#helpSection").slideToggle();
+        $("#helpArrow").removeClass("downArrow").addClass("rightArrow");
+    }
 }

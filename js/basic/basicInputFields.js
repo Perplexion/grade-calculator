@@ -49,9 +49,9 @@ $("#newCategory").on("click", function() {
      * This section modifies width and height of input fields
      */
     $(newCategory).css({"padding-top": "5px"});
-    $(newCatName).css({"width": "200px", "height": "80px"});
-    $(newWeight).css({"width": "200px", "height": "80px"});
-    $(newGrade).css({"width": "200px", "height": "80px"});
+    $(newCatName).css({"width": "150px", "height": "80px"});
+    $(newWeight).css({"width": "150px", "height": "80px"});
+    $(newGrade).css({"width": "150px", "height": "80px"});
     
     /**
      * Create the Button for deleting the category
