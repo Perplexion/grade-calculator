@@ -50,6 +50,15 @@ $("#newCategory").on("click", function() {
      */
     let newAssignmentButton = $(document.createElement("button"));
     $(newAssignmentButton).text("Add Assignment");
+    $(newAssignmentButton).addClass("btn_add_assignment")
+    $(newAssignmentButton).css({
+        "position": "relative",
+        "font-style": "normal",
+        "font-size": "1.2em",
+        "text-transform": "uppercase",
+        "font-weight": "bold",
+        "color": "black",
+    }); 
     $(newAssignmentButton).on("click", function() {
         addNewAssignment($(newAssignmentsDiv));
     });
@@ -73,17 +82,26 @@ $("#newCategory").on("click", function() {
     $(newCategory).css({"margin-top": "5px"});
     $(newCatName).css({
         "width": "200px",
-        "height": "25px",
+        "height": "80px",
     });
     $(newWeight).css({
-        "width": "100px",
-        "height": "25px",
+        "width": "200px",
+        "height": "80px",
     });
     
     /**
      * Create the Button for deleting this Category
      */
     $(newButton).text("Delete");
+    $(newButton).addClass("btn_delete");   
+    $(newButton).css({
+        "position": "relative",
+        "font-style": "normal",
+        "font-size": "1.2em",
+        "text-transform": "uppercase",
+        "font-weight": "bold",
+        "color": "black",
+    }); 
     $(newButton).on("click", function() {
         $(newCategory).remove();
     });
@@ -149,21 +167,30 @@ let addNewAssignment = function(AssignmentsDiv) {
     $(newAssignment).css({"margin": "5px 0px 0px 25px"});
     $(newAssignmentName).css({
         "width": "200px",
-        "height": "25px",
+        "height": "80px",
     });
     $(newMaxScore).css({
-        "width": "100px",
-        "height": "25px",
+        "width": "200px",
+        "height": "80px",
     });
     $(newEarnedScore).css({
-        "width": "100px",
-        "height": "25px",
+        "width": "200px",
+        "height": "80px",
     });
 
     /**
      * Add functionality to the Button that can delete this Assignment
      */
     $(newDeleteButton).text("Delete");
+    $(newDeleteButton).addClass("btn_delete");   
+    $(newDeleteButton).css({
+        "position": "relative",
+        "font-style": "normal",
+        "font-size": "1.2em",
+        "text-transform": "uppercase",
+        "font-weight": "bold",
+        "color": "black",
+    }); 
     $(newDeleteButton).on("click", function() {
         $(newAssignment).remove();
     });

@@ -58,16 +58,16 @@ $("#newCategory").on("click", function() {
      */
 
     
-    $(newButton).text("Delete");
     $(newButton).addClass("btn_delete");   
     $(newButton).css({
         "position": "relative",
         "font-style": "normal",
         "font-size": "1.2em",
         "text-transform": "uppercase",
-        "font-weight": "bold",
-        "color": "black",
-    });                                  
+        // "font-weight": "bold",
+        // "color": "black",
+    });
+    $(newButton).text("delete");                               
     $(newButton).on("click", function() {
         $(newCategory).remove();
     });
