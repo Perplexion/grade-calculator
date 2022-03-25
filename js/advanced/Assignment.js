@@ -22,4 +22,3 @@ class Assignment {
         return Number((this.actualScore / this.maxScore).toFixed(2));
     }
 }
-module.exports.Assignment = Assignment;
