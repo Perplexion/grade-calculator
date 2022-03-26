@@ -19,6 +19,6 @@ class Assignment {
      * @returns the calculated percentage score of this Assignment as a decimal
      */
     calcScore() {
-        return Number((this.actualScore / this.maxScore).toFixed(2));
+        return Number((this.actualScore / this.maxScore));
     }
 }

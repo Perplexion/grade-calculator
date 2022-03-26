@@ -22,7 +22,7 @@ class AdvancedCategory {
         var sum = 0;
 
         for(var i = 0; i < this.assignmentsList.length; i++)
-            sum += (this.assignmentsList[i].calcScore() * 100);                                 // convert decimal to percentage before adding to sum
+            sum += (this.assignmentsList[i].calcScore() * 100);
         return Number((sum / this.assignmentsList.length).toFixed(2));
     }
 
