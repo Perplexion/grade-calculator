@@ -8,20 +8,18 @@ $("#calculate").on("click", function() {
     for(let i = 0; i < categoryCount; i++) {
         if($("#category" + i).length) {                                                                 // check if the category by number still exists
             let categoryValues = $("#category" + i).find("input");
-            
             let categoryName = categoryValues[0].value;                                                 // store the user specified category name
             let categoryWeight = parseFloat(categoryValues[1].value);
             let categoryGrade = parseFloat(categoryValues[2].value);
 
-            if(!isValidInput(categoryWeight)) return;                                                // verify the category weight input
-            if(!isValidInput(categoryGrade)) return;                                                 // verify the category grade input
+            if(!isValidInput(categoryWeight, "Weight")) return;                                         // verify the category weight input
+            if(!isValidInput(categoryGrade, "Grade")) return;                                           // verify the category grade input
 
             basicModeUser.addCategory(new BasicCategory(categoryName, categoryWeight, categoryGrade));  // add the user defined category
-
-            if(basicModeUser.totalPercentageWeight > 100) {                                             // reject if user inputted more than 100% of category weight's
-                alert("Total Category Weight cannot exceed 100%");
-                return;
-            }
+        }
+        if(basicModeUser.totalPercentageWeight > 100) {                                             // reject if user inputted more than 100% of category weight's
+            alert("Total Category Weight cannot exceed 100%");
+            return;
         }
     }
     calculateWeightValue(basicModeUser.categoriesList);
@@ -30,7 +28,7 @@ $("#calculate").on("click", function() {
 });
 
 /**
- * Function that goes through all the user defined categories and calculates the point value it has on the final grade
+ * Function that calculates the point value of each category
  */
 let calculateWeightValue = function(categoriesList) {
     for(let i = 0; i < categoriesList.length; i++) {
@@ -41,15 +39,15 @@ let calculateWeightValue = function(categoriesList) {
 /**
  * Function that verifies the input of CategoryWeight and CategoryGrade to ensure they are valid numerics
  */
-let isValidInput = function(checkValue) {
+let isValidInput = function(checkValue, valueName) {
     if(isNaN(checkValue)) {
-        alert("A value in a Category is not a number!");
+        alert("Value for a Category's " + valueName + " must be a number!");
         return false;
-    } else if(checkValue < 0) {
-        alert("A value in Category is less than 0!");
+    } else if(checkValue <= 0) {
+        alert("Value for a Category's " + valueName + " must be at least 1!");
         return false;
     } else if(checkValue > 100) {
-        alert("A value in Category is greater than 100!");
+        alert("Value for a Category's " + valueName + " cannot be greater than 100!");
         return false;
     }
     return true;

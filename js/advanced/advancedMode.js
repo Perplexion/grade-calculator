@@ -1,7 +1,7 @@
 /**
- * Class to represent a user using the grade calculator in basic mode
+ * Class to represent a Student User for the grade calculator website
  */
-class BasicMode {
+class AdvancedMode {
     categoriesList;                                                             // list of grading categories
     totalPercentageWeight;                                                      // total percentage weight of all categories (should add to 100, but not necessarily)
 
@@ -34,7 +34,7 @@ class BasicMode {
      * @returns the final weighted grade for a class
      */
     calcFinalGrade() {
-        let totalWeightValue = 0;
+        var totalWeightValue = 0;
 
         for(var i = 0; i < this.categoriesList.length; i++)
             totalWeightValue += this.categoriesList[i].categoryWeightVal;
