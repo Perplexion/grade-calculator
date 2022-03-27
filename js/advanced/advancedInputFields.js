@@ -69,7 +69,7 @@ $("#newCategory").on("click", function() {
      */
     $(newCatName).attr({
         type: "text",
-        placeholder: "Category Name",
+        placeholder: "Category",
     });
     $(newWeight).attr({
         type: "text",
@@ -81,11 +81,11 @@ $("#newCategory").on("click", function() {
      */
     $(newCategory).css({"margin-top": "5px"});
     $(newCatName).css({
-        "width": "200px",
+        "width": "150px",
         "height": "80px",
     });
     $(newWeight).css({
-        "width": "200px",
+        "width": "150px",
         "height": "80px",
     });
     
@@ -144,7 +144,7 @@ let addNewAssignment = function(AssignmentsDiv) {
      */
     $(newAssignmentName).attr({
         type: "text",
-        placeholder: "Assignment Name",
+        placeholder: "Assignment",
     });
     $(newMaxScore).attr({
         type: "number",
@@ -166,15 +166,15 @@ let addNewAssignment = function(AssignmentsDiv) {
      */
     $(newAssignment).css({"margin": "5px 0px 0px 25px"});
     $(newAssignmentName).css({
-        "width": "200px",
+        "width": "150px",
         "height": "80px",
     });
     $(newMaxScore).css({
-        "width": "200px",
+        "width": "150px",
         "height": "80px",
     });
     $(newEarnedScore).css({
-        "width": "200px",
+        "width": "150px",
         "height": "80px",
     });
 

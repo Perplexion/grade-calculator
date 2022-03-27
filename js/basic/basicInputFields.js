@@ -31,7 +31,7 @@ $("#newCategory").on("click", function() {
      */
     $(newCatName).attr({
         type: "text",
-        placeholder: "Category Name",
+        placeholder: "Category",
     });
 
     $(newWeight).attr({
