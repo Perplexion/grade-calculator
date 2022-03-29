@@ -37,6 +37,7 @@ $("#newCategory").on("click", function() {
     let newCatName = $(document.createElement("input"));                                    // input for Category name
     let newWeight = $(document.createElement("input"));                                     // input for Category Weight
     let newButton = $(document.createElement("button"));                                    // Button to delete this Category
+    let iTag = $(document.createElement("i"));                                              // iTag for delete button 
 
     /**
      * Create the Assignments container for this Category
@@ -49,16 +50,16 @@ $("#newCategory").on("click", function() {
      * Create the "Add Assignment" button for this Category
      */
     let newAssignmentButton = $(document.createElement("button"));
-    $(newAssignmentButton).text("Add Assignment");
-    $(newAssignmentButton).addClass("btn_add_assignment")
-    $(newAssignmentButton).css({
+    let iTagAssignment = $(document.createElement("i"));
+    $(iTagAssignment).text("Add Assignment");
+    $(iTagAssignment).css({
         "position": "relative",
         "font-style": "normal",
         "font-size": "1.2em",
         "text-transform": "uppercase",
-        "font-weight": "bold",
-        "color": "black",
     }); 
+    $(newAssignmentButton).append(iTagAssignment);
+    $(newAssignmentButton).addClass("btn_add_assignment")
     $(newAssignmentButton).on("click", function() {
         addNewAssignment($(newAssignmentsDiv));
     });
@@ -92,16 +93,14 @@ $("#newCategory").on("click", function() {
     /**
      * Create the Button for deleting this Category
      */
-    $(newButton).text("Delete");
-    $(newButton).addClass("btn_delete");   
-    $(newButton).css({
-        "position": "relative",
-        "font-style": "normal",
-        "font-size": "1.2em",
-        "text-transform": "uppercase",
-        "font-weight": "bold",
-        "color": "black",
-    }); 
+    iTag.text("Delete");
+    iTag.css({
+         "position": "relative",
+         "font-style": "normal",
+         "font-size": "1.2em",
+         "text-transform": "uppercase"});
+    $(newButton).append(iTag);
+    $(newButton).addClass("btn_delete");    
     $(newButton).on("click", function() {
         $(newCategory).remove();
     });
@@ -138,6 +137,7 @@ let addNewAssignment = function(AssignmentsDiv) {
     let newMaxScore = $(document.createElement("input"));                                   // input for max score
     let newEarnedScore = $(document.createElement("input"));                                // input for earned score
     let newDeleteButton = $(document.createElement("button"));                              // delete button for this assignment
+    let iTagNewDeleteButton = $(document.createElement("i"));                               // iTag for delete button for this assignment 
 
     /**
      * Set attributes of new input fields
@@ -181,9 +181,8 @@ let addNewAssignment = function(AssignmentsDiv) {
     /**
      * Add functionality to the Button that can delete this Assignment
      */
-    $(newDeleteButton).text("Delete");
-    $(newDeleteButton).addClass("btn_delete");   
-    $(newDeleteButton).css({
+    $(iTagNewDeleteButton).text("Delete"); 
+    $(iTagNewDeleteButton).css({
         "position": "relative",
         "font-style": "normal",
         "font-size": "1.2em",
@@ -191,6 +190,8 @@ let addNewAssignment = function(AssignmentsDiv) {
         "font-weight": "bold",
         "color": "black",
     }); 
+    $(newDeleteButton).append(iTagNewDeleteButton);  
+    $(newDeleteButton).addClass("btn_delete");  
     $(newDeleteButton).on("click", function() {
         $(newAssignment).remove();
     });
