@@ -1,7 +1,9 @@
 # Team 1 - Grade Calculator Website
-One of multiple repositories for the final team project in Spring 2022-ICSI 418Y
+Repository for the final team project in Spring 2022-ICSI 418Y
 
-This specific repository is for the website version of the Grade Calculator
+# Live Website
+Last Updated on AWS on 03/28/2022
+[View Live Version](http://34.207.88.151/)
 
 Team Members:
 - Dan Yee
