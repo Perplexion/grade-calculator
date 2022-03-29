@@ -25,6 +25,7 @@ $("#newCategory").on("click", function() {
     let newWeight = $(document.createElement("input"));
     let newGrade = $(document.createElement("input"));
     let newButton = $(document.createElement("button"));
+    let iTag = $(document.createElement("i"));
     
     /**
      * Set the attributes of the input fields
@@ -58,16 +59,14 @@ $("#newCategory").on("click", function() {
      */
 
     
-    $(newButton).addClass("btn_delete");   
-    $(newButton).css({
-        "position": "relative",
-        "font-style": "normal",
-        "font-size": "1.2em",
-        "text-transform": "uppercase",
-        // "font-weight": "bold",
-        // "color": "black",
-    });
-    $(newButton).text("delete");                               
+    iTag.text("Delete");
+    iTag.css({
+         "position": "relative",
+         "font-style": "normal",
+         "font-size": "1.2em",
+         "text-transform": "uppercase"});
+    $(newButton).append(iTag);
+    $(newButton).addClass("btn_delete");                             
     $(newButton).on("click", function() {
         $(newCategory).remove();
     });
