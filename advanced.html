@@ -28,40 +28,58 @@
                 </header>
             </div>
         </nav>
-        <div class = "container">
-            <div class = "basic" id="basic">
-                <div class = "main">
-                    <div class = "calculator-section">
-                        <input type = "text" class = "value" id = "finalGrade" readonly name ="txt">
-                        <div class ="row align-items-start">
-                            <div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12" id = "inputFields">
-                                <div id = "category0">    
-                                    <input class = "name" type = "text" placeholder = "Category">
-                                    <input class = "numeric" type = "number" placeholder = "Weight" min = "0" max = "100" required>
-                                    <button id = "delCategory0"class ="btn_delete"><i>Delete</i></button>
-                                    <div id = "category0-assignments">
-                                        <div id = "assignment0" class = "assignment">
-                                            <input style =  "margin: 5px 0px 0px 25px;" class = "name" type = "text" placeholder = "Assignment">
-                                            <input class = "numeric" type = "number" placeholder = "Max Score" min = "0" max = "100" required>
-                                            <input class = "numeric" type = "number" placeholder = "Earned Score" min = "0" max = "100" required>
-                                            <button id = "delAssignment0" class ="btn_delete"><i>Delete</i></button>
+
+
+
+        <div class = "container-fluid">
+            <div class="row justify-content-between">
+
+                <div class="col-md-6">
+                    <div class = "basic" id="basic">
+                        <div class = "main">
+                            <div class = "calculator-section">
+                                <input type = "text" class = "value" id = "finalGrade" readonly name ="txt">
+                                <div class ="row align-items-start">
+                                    <div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12" id = "inputFields">
+                                        <div id = "category0">    
+                                            <input class = "name" type = "text" placeholder = "Category">
+                                            <input class = "numeric" type = "number" placeholder = "Weight" min = "0" max = "100" required>
+                                            <button id = "delCategory0"class ="btn_delete"><i>Delete</i></button>
+                                            <div id = "category0-assignments">
+                                                <div id = "assignment0" class = "assignment">
+                                                    <input style =  "margin: 5px 0px 0px 25px;" class = "name" type = "text" placeholder = "Assignment">
+                                                    <input class = "numeric" type = "number" placeholder = "Max Score" min = "0" max = "100" required>
+                                                    <input class = "numeric" type = "number" placeholder = "Earned Score" min = "0" max = "100" required>
+                                                    <button id = "delAssignment0" class ="btn_delete"><i>Delete</i></button>
+                                                </div>
+                                            </div>
+                                            <button style =  "margin: 5px 0px 0px 25px;" id = "newAssignment0" class = "btn_add_assignment"><i>Add Assignment</i></button>
                                         </div>
                                     </div>
-                                    <button style =  "margin: 5px 0px 0px 25px;" id = "newAssignment0" class = "btn_add_assignment"><i>Add Assignment</i></button>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row align-items-end">
-                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                <button id = "newCategory" class = "btn_add"><i>Add</i></button>
-                            </div>
-                            <div class="col">
-                                <button id = "calculate" class ="btn_calculate" ><i>calculate</i></button>
+                                <div class="row align-items-end">
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                        <button id = "newCategory" class = "btn_add"><i>Add</i></button>
+                                    </div>
+                                    <div class="col">
+                                        <button id = "calculate" class ="btn_calculate" ><i>calculate</i></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class = "rightColumn col-md-6">
+
+
+                    
+                </div>
+
             </div>
+
+
+            
         </div>
         <script src = "js/jquery-3.6.0.min.js"></script>
         <script src = "js/advanced/advancedInputFields.js"></script>
