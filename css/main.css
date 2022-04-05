@@ -284,3 +284,7 @@ CSS for the right column of the Basic Calculator page
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
+
+hr {
+    background-color: black;
+}

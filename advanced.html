@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <!-- Main CSS sheet and responsive CSS sheets -->
+        <!-- Main CSS sheet -->
         <link rel="stylesheet" type="text/css" href="css/main.css">
 
         <!-- Bootstrap CSS -->
@@ -28,9 +28,6 @@
                 </header>
             </div>
         </nav>
-
-
-
         <div class = "container-fluid">
             <div class="row justify-content-between">
 
@@ -69,19 +66,95 @@
                         </div>
                     </div>
                 </div>
-
                 <div class = "rightColumn col-md-6">
-
-
-                    
+                    <div class = "container-fluid">
+                        <h3 id = "helpSectionToggle">Instructions <i class = "arrow downArrow" id = "helpArrow"></i></h3>
+                        <div class = "row" id = "helpSection">
+                            <div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <ul>
+                                    <li>(Optional) Enter the name of the grading category.</li>
+                                    <li>Enter the weight (0 - 100) a specific category has on your final grade.</li>
+                                    <li>For every assignment associated with this category, create a new Assignment input</li>
+                                    <li>For every Assignment:</li>
+                                    <ul>
+                                        <li>(Optional) Enter the name of assignment.</li>
+                                        <li>Enter the maximum score (0 - 100) that can be earned for this assignment.</li>
+                                        <li>Enter the score you received (0 - 100) for this assignment.</li>
+                                    </ul>
+                                </ul>
+                            </div>
+                            <div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6" id = "basicExample">
+                                <table>
+                                    <tr>
+                                        <th>Category Name</th>
+                                        <th>Weight</th>
+                                        <th>-</th>
+                                        <th>-</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Homeworks</td>
+                                        <td>15</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th>-</th>
+                                        <th>Assignment Name</th>
+                                        <th>Max Score</th>
+                                        <th>Earned Score</th>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>Homework 1</td>
+                                        <td>100</td>
+                                        <td>85</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>Homework 2</td>
+                                        <td>80</td>
+                                        <td>79</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quizzes</td>
+                                        <td>30</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <th>-</th>
+                                        <th>Assignment Name</th>
+                                        <th>Max Score</th>
+                                        <th>Earned Score</th>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>Quiz 0</td>
+                                        <td>100</td>
+                                        <td>70</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-</td>
+                                        <td>Quiz 1</td>
+                                        <td>100</td>
+                                        <td>100</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class = "row">
+                            <div id = "gradeSummary">
+                                <h3>Grade Summary:</h3>
+                                <span id = "gradeSummaryText"></span>
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
-
             </div>
-
-
-            
         </div>
         <script src = "js/jquery-3.6.0.min.js"></script>
+        <script src = "js/advanced/advanced.js"></script>
         <script src = "js/advanced/advancedInputFields.js"></script>
         <script src = "js/advanced/Assignment.js"></script>
         <script src = "js/advanced/advancedCategory.js"></script>
