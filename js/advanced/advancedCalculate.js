@@ -34,6 +34,7 @@ $("#calculate").on("click", function() {
         }
     }
     $("#finalGrade").val(advancedModeUser.calcFinalGrade() + "%");
+    showGradeSummary(advancedModeUser);
 });
 
 /**
@@ -65,4 +66,32 @@ let isValidAssignmentNumber = function(value, valueName) {
         return false;
     }
     return true;
+}
+
+/**
+ * Function that hides the "Instructions" section with a slide toggle and displays a summary based on the user's input
+ */
+let showGradeSummary = function(user) {
+    $("#gradeSummaryText").text("");                                                        // clear any old text that was there from a previous calculation
+    for(let i = 0; i < user.categoriesList.length; i++) {                                   // Write a summary for each Category defined by the user
+        let currentCategory = user.categoriesList[i];
+        let newSummaryLine = $(document.createElement("p"));
+        
+        newSummaryLine.text("Category \"" + currentCategory.categoryName + "\" is worth " + currentCategory.percentageWeight + "% of your grade. You've created " + currentCategory.assignmentsList.length + " assignment(s) associated with this category. The average of these assignments is " + currentCategory.calcCategoryAvg() + "%. Therefore, this category is worth " + currentCategory.categoryWeightVal + " points on your final grade.");
+        $("#gradeSummaryText").append(newSummaryLine);
+    }
+
+    /**
+     * Make the grade summary section visible if is wasn't already
+     */
+    if(!($("#gradeSummary").is(":visible")))
+        $("#gradeSummary").slideToggle();
+
+    /**
+     * Hide the Instructions section to make room for grade summary section
+     */
+    if($("#helpSection").is(":visible")) {
+        $("#helpSection").slideToggle();
+        $("#helpArrow").removeClass("downArrow").addClass("rightArrow");
+    }
 }
