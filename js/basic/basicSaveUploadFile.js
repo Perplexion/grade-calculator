@@ -44,16 +44,24 @@ $(document).ready(function(){
           }
       }
 
-      //filling fields with data from csv
-      for(let i =0; i < data.length; i++){
-          //create new category for 
-          $("#newCategory").click();
-          let values = $("#category"+(categoryCount-1)).find("input");
-          for(let j = 0; j < values.length; j++){
-              values[j].value = data[i][j];
-          }
-      }
-  }});
+    //filling fields with data from csv
+    for(let i =0; i < data.length; i++){
+        //create new category for 
+        $("#newCategory").click();
+        let values = $("#category"+(categoryCount-1)).find("input");
+        for(let j = 0; j < values.length; j++){
+            //checking for undefined values because some CSV editors save files in such a way 
+            //that this step generates a mostly empty row at the bottom of the file.
+            //this step prevents that from happening
+            if (data[i][j]===undefined){
+                //find button to clear row we just made
+                $("#category"+(categoryCount-1)).find("button").click();
+                break;
+            }
+            values[j].value = data[i][j];  
+        }
+    }
+}});
 
   function downloadSheet(){
       let rows = [];
