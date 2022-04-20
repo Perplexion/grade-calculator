@@ -83,8 +83,11 @@ $(document).ready(function(){
 
       var encodedUri = encodeURI(csvContent);
       var link = document.createElement("a");
+      //use date and time to give every file a distinct name
+      let date = new Date();
+      let date_str = date.getMonth()+"-"+date.getDate()+"-"+date.getFullYear()+"_"+date.getHours()+"-"+date.getMinutes();
       link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "Basic_Grade_Calc_"+Date()+".csv");
+      link.setAttribute("download", "BasicGrade_"+date_str+".csv");
       document.body.appendChild(link); 
       link.click(); // This will download the data file 
       document.body.removeChild(link);
