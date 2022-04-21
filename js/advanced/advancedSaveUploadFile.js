@@ -49,22 +49,29 @@ $(document).ready(function(){
     categoryCount = 0;
 
       //clearing all input fields
-      /*for (let i = 0; i < categoryCount; i++){
-          if($("#category"+i).length >0){ // if category exists
-              $("#category"+i).find("#delCategory0").click();
-          }
-      }*/
-
       /*
-      //filling fields with data from csv
-      for(let i =0; i < data.length; i++){
-          //create new category for 
-          $("#newCategory").click();
-          let values = $("#category"+(categoryCount-1)).find("input");
-          for(let j = 0; j < values.length; j++){
-              values[j].value = data[i][j];
+      for (let i = 0; i < categoryCount; i++){
+          if($("#category"+i).length >0){ // if category exists
+              $("#category"+i).find("button").click();
           }
-      }*/
+      }
+
+    //filling fields with data from csv
+    for(let i =0; i < data.length; i++){
+        //create new category for 
+        $("#newCategory").click();
+        let values = $("#category"+(categoryCount-1)).find("input");
+        for(let j = 0; j < values.length; j++){
+            //checking for undefined values because some CSV editors save files in such a way 
+            //that this step generates a mostly empty row at the bottom of the file.
+            //this step prevents that from happening
+            if (data[i][j]===undefined){
+                //find button to clear row we just made
+                $("#category"+(categoryCount-1)).find("button").click();
+                break;
+            }
+            values[j].value = data[i][j];  
+        }*/
   }});
 
   function downloadSheet(){
