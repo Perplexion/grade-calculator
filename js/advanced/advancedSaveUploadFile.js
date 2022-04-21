@@ -26,53 +26,86 @@ $(document).ready(function(){
         });
     });
       
-  function fillInputFields(results){
-      let data = results.data;
-      let heading = data.shift().join(",");  //remove the row that is just column names
-      let headingShouldBe = ["Category Name","Weight","Assignment Count"].join(",");
-      //TODO:This warning is in the console, but I would like it to have it's own box that is only visible if there is a warning present
-      //I tried to do this, but it was taking too long so I decided to wrap this up and commit
-      if (heading !== headingShouldBe){
-          console.log("Waring: \dUpload file has heading: "+heading);
-          console.log("Upload File heading should look like: "+headingShouldBe)
-      }
+    function fillInputFields(results){
+        let data = results.data;
+        let heading = data.shift().join(",");  //remove the row that is just column names
+        //TODO: add -'s to csv the way it looks like in Dan's chart, update code accordingly 
+        let headingShouldBe = ["Category Name","Weight"].join(",");
+        //TODO:This warning is in the console, but I would like it to have it's own box that is only visible if there is a warning present
+        //I tried to do this, but it was taking too long so I decided to wrap this up and commit
+        if (heading !== headingShouldBe){ //until above TODO is fixed, this will always throw errors
+            console.log("Waring: \dUpload file has heading: "+heading);
+            console.log("Upload File heading should look like: "+headingShouldBe)
+        }
 
-    //https://stackoverflow.com/questions/13555785/remove-all-child-from-node-with-the-same-class-pure-js
-    //THIS ISN'T WORKING EITHER
-    var container = document.getElementById("inputFields");
-    var elements = container.getElementsByClassName("category");
-
-    while (elements[0]) {
-        elements[0].parentNode.removeChild(elements[0]);
-    }
-
-    categoryCount = 0;
-
-      //clearing all input fields
-      /*
-      for (let i = 0; i < categoryCount; i++){
-          if($("#category"+i).length >0){ // if category exists
-              $("#category"+i).find("button").click();
-          }
-      }
-
-    //filling fields with data from csv
-    for(let i =0; i < data.length; i++){
-        //create new category for 
-        $("#newCategory").click();
-        let values = $("#category"+(categoryCount-1)).find("input");
-        for(let j = 0; j < values.length; j++){
-            //checking for undefined values because some CSV editors save files in such a way 
-            //that this step generates a mostly empty row at the bottom of the file.
-            //this step prevents that from happening
-            if (data[i][j]===undefined){
-                //find button to clear row we just made
-                $("#category"+(categoryCount-1)).find("button").click();
-                break;
+        //clearing all input fields
+        for (let i = 0; i < categoryCount; i++){
+            if($("#category"+i).length){ // if category exists
+                $("#category"+i+" .btn_delete").click(); //finds and presses delete button 
             }
-            values[j].value = data[i][j];  
-        }*/
-  }});
+        }
+        //reset category count for simplicity
+        categoryCount = 0;
+        //filling fields with data from csv
+        console.log("data.length = "+data.length)
+        for(let i =0; i < data.length; i++){
+            if (data[i][0] === "-"){ //is either assignment of assignment heading
+                let categoryAssignments = $("#category"+(categoryCount-1)+"-assignments").find("div");
+                //causing weird error rn
+                /*while (data[i][0] === "-"){
+                    console.log(data[i][0]);
+                    if (data[i][1] === "Assignment Name"){
+                        //don't add this row to 
+                        console.log("data["+i+"][1] === Assignment Name");
+                        i++;
+                    } else {
+                        //find category add button
+                        console.log("data["+i+"][1] !== Assignment Name");
+                        console.log($("#category"+(categoryCount-1)+" .btn_add_assignment"));
+                        i++;
+                        //add things to final assignment
+                    }
+                }*/
+
+            } else { //if this should be a new category
+                //make new category
+                $("#newCategory").click();
+                let categoryValues = $("#category"+(categoryCount-1)).find("input");
+                for (let j = 0; j < 2; j++){//categories only have two fields
+                    categoryValues[j].value = data[i][j]; 
+                    if (data[i][j]===undefined){
+                        console.log("data["+i+"]["+j+"] === undefined")
+                        //find button to clear row we just made
+                        $("#category"+i+" .btn_delete").click(); //finds and presses delete button
+                        break;
+                    }
+                }                                                      // find information about the Category
+            }
+        }
+
+        
+        
+
+        //filling fields with data from csv
+        for(let i =0; i < data.length; i++){
+            //create new category for 
+            $("#newCategory").click();
+            let values = $("#category"+(categoryCount-1)).find("input");
+            for(let j = 0; j < values.length; j++){
+                //checking for undefined values because some CSV editors save files in such a way 
+                //that this step generates a mostly empty row at the bottom of the file.
+                //this step prevents that from happening
+                if (data[i][j]===undefined){
+                    //find button to clear row we just made
+                    $("#category"+(categoryCount-1)).find("button").click();
+                    break;
+                }
+                values[j].value = data[i][j];  
+            }
+        }
+
+    }
+});
 
   function downloadSheet(){
       let rows = [];
