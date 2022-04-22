@@ -64,6 +64,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="submain">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <label class="label" for="files">Upload a Save File:</label>
+                                    <input type="file" id="files"  class="form-control" accept=".csv" required />
+                                </div>
+                                <div class="form-group">
+                                    <button class="space" type="submit" id="submit-file" class="btn-upload">Upload File</button>
+                                </div>
+                                <button id="download-sheet" class="btn-download" onclick="downloadSheet()">Save as CSV</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class = "rightColumn col-md-6">
@@ -154,11 +166,13 @@
             </div>
         </div>
         <script src = "js/jquery-3.6.0.min.js"></script>
+        <script src = "js/papaparse.min.js"></script>
         <script src = "js/advanced/advanced.js"></script>
         <script src = "js/advanced/advancedInputFields.js"></script>
         <script src = "js/advanced/Assignment.js"></script>
         <script src = "js/advanced/advancedCategory.js"></script>
         <script src = "js/advanced/advancedMode.js"></script>
         <script src = "js/advanced/advancedCalculate.js"></script>
+        <script src = "js/advanced/advancedSaveUploadFile.js"></script>
     </body>
 </html>

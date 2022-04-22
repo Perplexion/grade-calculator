@@ -26,53 +26,60 @@ $(document).ready(function(){
         });
     });
       
-  function fillInputFields(results){
-      let data = results.data;
-      let heading = data.shift().join(",");  //remove the row that is just column names
-      let headingShouldBe = ["Category Name","Weight","Assignment Count"].join(",");
-      //TODO:This warning is in the console, but I would like it to have it's own box that is only visible if there is a warning present
-      //I tried to do this, but it was taking too long so I decided to wrap this up and commit
-      if (heading !== headingShouldBe){
-          console.log("Waring: \dUpload file has heading: "+heading);
-          console.log("Upload File heading should look like: "+headingShouldBe)
-      }
+    function fillInputFields(results){
+        let data = results.data;
+        let heading = data.shift().join(",");  //remove the row that is just column names
+        let headingShouldBe = ["Category Name","Weight"].join(",");
+        //TODO:This warning is in the console, but I would like it to have it's own box that is only visible if there is a warning present
+        //I tried to do this, but it was taking too long so I decided to wrap this up and commit
+        if (heading !== headingShouldBe){ //until above TODO is fixed, this will always throw errors
+            console.log("Waring: \dUpload file has heading: "+heading);
+            console.log("Upload File heading should look like: "+headingShouldBe)
+        }
 
-    //https://stackoverflow.com/questions/13555785/remove-all-child-from-node-with-the-same-class-pure-js
-    //THIS ISN'T WORKING EITHER
-    var container = document.getElementById("inputFields");
-    var elements = container.getElementsByClassName("category");
-
-    while (elements[0]) {
-        elements[0].parentNode.removeChild(elements[0]);
-    }
-
-    categoryCount = 0;
-
-      //clearing all input fields
-      /*
-      for (let i = 0; i < categoryCount; i++){
-          if($("#category"+i).length >0){ // if category exists
-              $("#category"+i).find("button").click();
-          }
-      }
-
-    //filling fields with data from csv
-    for(let i =0; i < data.length; i++){
-        //create new category for 
-        $("#newCategory").click();
-        let values = $("#category"+(categoryCount-1)).find("input");
-        for(let j = 0; j < values.length; j++){
-            //checking for undefined values because some CSV editors save files in such a way 
-            //that this step generates a mostly empty row at the bottom of the file.
-            //this step prevents that from happening
-            if (data[i][j]===undefined){
-                //find button to clear row we just made
-                $("#category"+(categoryCount-1)).find("button").click();
-                break;
+        //clearing all input fields
+        for (let i = 0; i < categoryCount; i++){
+            if($("#category"+i).length){ // if category exists
+                $("#category"+i+" .btn_delete").click(); //finds and presses delete button 
             }
-            values[j].value = data[i][j];  
-        }*/
-  }});
+        }
+        //reset category count for simplicity
+        categoryCount = 0;
+        //filling fields with data from csv
+        console.log("data.length = "+data.length)
+        let prevCategoryName = ""; 
+        let currentCategory;
+        let currentAssignmentFields;
+        for(let i =0; i < data.length; i++){
+            //assumes that all data in csv is grouped by category
+            if (data[i][0]!==prevCategoryName){  
+                prevCategoryName = data[i][0];
+                $("#newCategory").click(); //create new category
+                currentCategory = $("#category"+(categoryCount-1));
+                categoryValues = currentCategory.find("input");
+                for (let j = 0; j < 2; j++){ //categories only have two fields
+                    categoryValues[j].value = data[i][j]; 
+                    if (data[i][j]===undefined){
+                        //find button to clear row we just made
+                        currentCategory.find(".btn_delete").click(); //finds and presses delete button
+                        break;
+                    }
+                }
+                currentAssignmentFields = currentCategory.find(".assignment").find("input"); //only one element right now
+            }  else {
+                //make new assignment
+                currentCategory.find(".btn_add_assignment").click();
+                //let assignments = currentCategory.find(".assignment").find("input");
+                let assignments = currentCategory.find(".assignment");
+                console.log(assignments[assignments.length - 1]);
+                currentAssignmentFields = assignments[assignments.length - 1].getElementsByTagName("input"); //find lst assignment
+            }
+            for(let j = 2; j < data[0].length; j++){ //first two fields are specific to category, not assignment
+                currentAssignmentFields[j-2].value = data[i][j];
+            }   
+        }
+    }
+});
 
   function downloadSheet(){
       let rows = [];
