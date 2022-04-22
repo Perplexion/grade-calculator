@@ -24,6 +24,7 @@ $("#calculate").on("click", function() {
     }
     calculateWeightValue(basicModeUser.categoriesList);
     $("#finalGrade").val(basicModeUser.calcFinalGrade() + "%");
+    setCookies(basicModeUser.categoriesList);
     showGradeSummary(basicModeUser);
 });
 
