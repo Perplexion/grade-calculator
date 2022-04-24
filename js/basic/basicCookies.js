@@ -17,15 +17,11 @@ function checkACookieExists(cname) {
 function setCookies(Category_List) {
     if(Category_List.length>0){
         document.cookie = "cookies="+Category_List.length+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
-        console.log(getCookie("cookies")); 
         for(i=0; i<Category_List.length;i++)
         {
             document.cookie = "name"+i+"="+Category_List[i].categoryName;+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
             document.cookie = "weight"+i+"="+Category_List[i].percentageWeight;+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
-            document.cookie = "grade"+i+"="+Category_List[i].earnedGrade;+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
-            console.log(getCookie("name"));
-            console.log(getCookie("weight"));
-            console.log(getCookie("grade"));  
+            document.cookie = "grade"+i+"="+Category_List[i].earnedGrade;+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";  
         }
     }
 }
@@ -43,6 +39,8 @@ function getCookies() {
             autofill(zname, zweight, zgrade,i);
             x++;
         }
+        if(num>1)
+            $("#category0").remove()
         return x;
     }
     else
