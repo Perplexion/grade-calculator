@@ -29,10 +29,10 @@ $(document).ready(function(){
     function fillInputFields(results){
         let data = results.data;
         let heading = data.shift().join(",");  //remove the row that is just column names
-        let headingShouldBe = ["Category Name","Weight"].join(",");
+        let headingShouldBe = "Category Name,Weight,Assignment Name,Max Score,Earned Score";
         //TODO:This warning is in the console, but I would like it to have it's own box that is only visible if there is a warning present
         //I tried to do this, but it was taking too long so I decided to wrap this up and commit
-        if (heading !== headingShouldBe){ //until above TODO is fixed, this will always throw errors
+        if (heading !== headingShouldBe){ 
             console.log("Waring: \dUpload file has heading: "+heading);
             console.log("Upload File heading should look like: "+headingShouldBe)
         }
@@ -46,12 +46,12 @@ $(document).ready(function(){
         //reset category count for simplicity
         categoryCount = 0;
         //filling fields with data from csv
-        console.log("data.length = "+data.length)
         let prevCategoryName = ""; 
         let currentCategory;
         let currentAssignmentFields;
         for(let i =0; i < data.length; i++){
-            //assumes that all data in csv is grouped by category
+            //assumes that all data in csv is grouped by category - could be refactored
+            //also assumes that first weight associated with category is true weight
             if (data[i][0]!==prevCategoryName){  
                 prevCategoryName = data[i][0];
                 $("#newCategory").click(); //create new category
@@ -69,10 +69,9 @@ $(document).ready(function(){
             }  else {
                 //make new assignment
                 currentCategory.find(".btn_add_assignment").click();
-                //let assignments = currentCategory.find(".assignment").find("input");
                 let assignments = currentCategory.find(".assignment");
                 console.log(assignments[assignments.length - 1]);
-                currentAssignmentFields = assignments[assignments.length - 1].getElementsByTagName("input"); //find lst assignment
+                currentAssignmentFields = assignments[assignments.length - 1].getElementsByTagName("input"); //find last assignment
             }
             for(let j = 2; j < data[0].length; j++){ //first two fields are specific to category, not assignment
                 currentAssignmentFields[j-2].value = data[i][j];
@@ -81,39 +80,52 @@ $(document).ready(function(){
     }
 });
 
-  function downloadSheet(){
-      let rows = [];
-      rows.push(["Category Name","Weight","Grade"]);
 
-      for (let i = 0; i < categoryCount; i++){
-          if($("#category"+i).length >0){ // if category exists
-              let inputs = $("#category"+i).find("input");
-              let values = [];
-              for(let j = 0; j < inputs.length; j++){
-                  //if there are commas it will break the csv parser so just remove them
-                  let valueSansCommas = inputs[j].value.replace(/,/g,'');
-                  values.push(valueSansCommas);
-              }
-              rows.push(values);
-          }
-      }
+function downloadSheet(){
+    let rows = [];
+    rows.push(["Category Name","Weight","Assignment Name","Max Score","Earned Score"]);
 
-      //courtesy of https://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
-      //-some adjustments made
-      let csvContent = "data:text/csv;charset=utf-8,";
-      for (let i = 0; i < rows.length-1; i++){
-          let row = rows[i].join(",");
-          csvContent += row + "\r\n";
-      }
-      //don't add carriage return to final line
-      let row = rows[rows.length-1].join(",");
-      csvContent += row;
+    for (let i = 0; i < categoryCount; i++){
+        if($("#category"+i).length >0){ // if category exists
+            let categoryValues = $("#category" + i).find("input");  
+            //value.replace(/,/g, '') removes commas, that can break our csv                                      
+            let categoryName = categoryValues[0].value.replace(/,/g, ''); 
+            let categoryWeight = categoryValues[1].value.replace(/,/g, '');
 
-      var encodedUri = encodeURI(csvContent);
-      var link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "Basic_Grade_Calc_"+Date()+".csv");
-      document.body.appendChild(link); 
-      link.click(); // This will download the data file 
-      document.body.removeChild(link);
-  }
+            let categoryAssignments = $("#category" + i + "-assignments").find("div");                                
+            for(let j = 0; j < categoryAssignments.length; j++) {
+                let currentAssignment = $(categoryAssignments[j]).find("input");
+                let row = [categoryName, categoryWeight];
+                for (let k = 0; k < 3; k++){
+                    row.push(currentAssignment[k].value.replace(/,/g, ''));
+                }                                       
+                rows.push(row);
+            }
+            //if there is an empty category, we still want to save it
+            if (categoryAssignments.length == 0){
+                rows.push([categoryName, categoryWeight,"","",""]);
+            } 
+        }
+    }
+
+    //courtesy of https://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side
+    //-some adjustments made
+    let csvContent = "data:text/csv;charset=utf-8,";
+    for (let i = 0; i < rows.length-1; i++){
+        let row = rows[i].join(",");
+        csvContent += row + "\r\n";
+    }
+    //don't add carriage return to final line
+    let row = rows[rows.length-1].join(",");
+    csvContent += row;
+
+    var encodedUri = encodeURI(csvContent);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    let date = new Date();
+    let date_str = date.getMonth()+"-"+date.getDate()+"-"+date.getFullYear()+"_"+date.getHours()+"-"+date.getMinutes();
+    link.setAttribute("download", "AdvancedGrade_"+date_str+".csv");
+    document.body.appendChild(link); 
+    link.click(); // This will download the data file 
+    document.body.removeChild(link);
+}
