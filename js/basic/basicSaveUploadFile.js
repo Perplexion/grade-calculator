@@ -72,7 +72,8 @@ $(document).ready(function(){
               let inputs = $("#category"+i).find("input");
               let values = [];
               for(let j = 0; j < inputs.length; j++){
-                  values.push(inputs[j].value);
+                  let valueSansCommmas = inputs[j].value.replace(/,/g, ''); //commas break our program so remove them
+                  values.push(valueSansCommmas);
               }
               rows.push(values);
           }
