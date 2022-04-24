@@ -1,26 +1,53 @@
-var categoryCount = 1;                          // store the category count to be used when creating dynamic input fields for unique id names
+function getCookie(cname) {
+    if(checkACookieExists(cname)) {
+        cookieValue = document.cookie
+        .split('; ')
+        .find(row => row.startsWith(cname))
+        .split('=')[1];
+        return cookieValue;
+    }
+}
 
-/**
- * Style the default loaded category line once the page is loaded
- * Note: Things you want to happen when the page loads can also be included here
- */
-$(document).ready(function() {
-    /**
-     * Add removal to the default loaded category line
-     */
-    $("#button0").on("click", function() {
-        $("#category0").remove();
-    });
-    categoryCount = getCookies();
-});
+function checkACookieExists(cname) {
+    if (document.cookie.split(';').some((item) => item.trim().startsWith(cname))) {
+      return true;
+    }
+}
 
-/**
- * Functionality to add new lines for user input as well as deletion of the fields
- */
-$("#newCategory").on("click", function() {
-    /**
-     * Create the new HTML elements - the category div, three input fields and the delete button for this category
-     */
+function setCookies(Category_List) {
+    if(Category_List.length>0){
+        document.cookie = "cookies="+Category_List.length+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+        for(i=0; i<Category_List.length;i++)
+        {
+            document.cookie = "name"+i+"="+Category_List[i].categoryName;+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+            document.cookie = "weight"+i+"="+Category_List[i].percentageWeight;+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+            document.cookie = "grade"+i+"="+Category_List[i].earnedGrade;+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";  
+        }
+    }
+}
+
+function getCookies() {
+    let num=getCookie("cookies");
+    let zname, zweight, zgrade;
+    let x=1;
+    if (num != ""){
+        for(i=0;i<num;i++)
+        {
+            zname=getCookie("name"+i);
+            zweight=getCookie("weight"+i);
+            zgrade=getCookie("grade"+i);
+            autofill(zname, zweight, zgrade,i);
+            x++;
+        }
+        if(num>1)
+            $("#category0").remove()
+        return x;
+    }
+    else
+        return 1;
+}
+
+function autofill(zname, zweight, zgrade,i) {
     let newCategory = $(document.createElement("div"));
     let newCatName = $(document.createElement("input"));
     let newWeight = $(document.createElement("input"));
@@ -33,17 +60,17 @@ $("#newCategory").on("click", function() {
      */
     $(newCatName).attr({
         type: "text",
-        placeholder: "Category",
+        value: zname,
     });
 
     $(newWeight).attr({
         type: "text",
-        placeholder: "Weight",
+        value: zweight,
     });
 
     $(newGrade).attr({
         type: "text",
-        placeholder: "Grade",
+        value: zgrade,
     });
 
     /**
@@ -80,16 +107,12 @@ $("#newCategory").on("click", function() {
     /**
      * Give it a unique id name so that it can be referenced later on (hopefully)
      */
-    $(newCategory).attr("id", "category" + categoryCount);
+    $(newCategory).attr("id", "category" + i++);
 
     /**
      * Append the div to the main container, also a div
      */
     $("#inputFields").append(newCategory);
 
-    /**
-     * Increment the count so the number is always unique for each new category created
-     */
-    categoryCount++;
-    return categoryCount;
-});
+    return true;
+}
