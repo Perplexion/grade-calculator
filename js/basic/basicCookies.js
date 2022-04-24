@@ -1,33 +1,31 @@
-function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-  
 function getCookie(cname) {
-    let name = cname + "=";
-    let ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
+    if(checkACookieExists(cname)) {
+        cookieValue = document.cookie
+        .split('; ')
+        .find(row => row.startsWith(cname))
+        .split('=')[1];
+        return cookieValue;
     }
-    return "";
+}
+
+function checkACookieExists(cname) {
+    if (document.cookie.split(';').some((item) => item.trim().startsWith(cname))) {
+      return true;
+    }
 }
 
 function setCookies(Category_List) {
     if(Category_List.length>0){
-    setCookie("cookies",Category_List.length,365);
+        document.cookie = "cookies="+Category_List.length+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+        console.log(getCookie("cookies")); 
         for(i=0; i<Category_List.length;i++)
         {
-            setCookie("name"+i, Category_List[i], 365);
-            setCookie("weight"+i, Category_List[i], 365);
-            setCookie("grade"+i, Category_List[i], 365);
+            document.cookie = "name"+i+"="+Category_List[i].categoryName;+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+            document.cookie = "weight"+i+"="+Category_List[i].percentageWeight;+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+            document.cookie = "grade"+i+"="+Category_List[i].earnedGrade;+"; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+            console.log(getCookie("name"));
+            console.log(getCookie("weight"));
+            console.log(getCookie("grade"));  
         }
     }
 }
@@ -37,11 +35,11 @@ function getCookies() {
     let zname, zweight, zgrade;
     let x=1;
     if (num != ""){
-        for(i=0;i<num.cvalue;i++)
+        for(i=0;i<num;i++)
         {
-            zname=getCookie("name"+i).cvalue;
-            zweight=getCookie("weight"+i).cvalue;
-            zgrade=getCookie("grade"+i).cvalue;
+            zname=getCookie("name"+i);
+            zweight=getCookie("weight"+i);
+            zgrade=getCookie("grade"+i);
             autofill(zname, zweight, zgrade,i);
             x++;
         }
@@ -120,4 +118,3 @@ function autofill(zname, zweight, zgrade,i) {
 
     return true;
 }
-  
