@@ -90,7 +90,6 @@ function autofill(zname, zweight, zgrade,i) {
      * Create the Button for deleting the category
      */
 
-    
     iTag.text("Delete");
     iTag.css({
          "position": "relative",
