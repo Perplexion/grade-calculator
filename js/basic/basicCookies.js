@@ -42,7 +42,7 @@ function getCookies() {
             zname=getCookie("name"+i).cvalue;
             zweight=getCookie("weight"+i).cvalue;
             zgrade=getCookie("grade"+i).cvalue;
-            autofill(zname, zweight, zgrade,i);
+            autofill(zname, zweight, zgrade, i);
             x++;
         }
         return x;
@@ -110,7 +110,7 @@ function autofill(zname, zweight, zgrade,i) {
     /**
      * Give it a unique id name so that it can be referenced later on (hopefully)
      */
-    $(newCategory).attr("id", "category" + i++);
+    $(newCategory).attr("id", "category" + ++i);
 
     /**
      * Append the div to the main container, also a div
