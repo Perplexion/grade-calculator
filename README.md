@@ -2,7 +2,7 @@
 Repository for the team project in Spring 2022-ICSI 418Y-Software Engineering
 
 # Live Website
-Last Updated on AWS on 03/28/2022
+Last Updated on AWS on 05/05/2022
 
 [View Live Version](http://34.207.88.151/)
 
